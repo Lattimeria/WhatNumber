@@ -7,3 +7,13 @@ D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Properties.Resources.resou
 D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csproj.GenerateResource.Cache
 D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.exe
 D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.pdb
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csprojResolveAssemblyReference.cache
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Form1.resources
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Properties.Resources.resources
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csproj.GenerateResource.Cache
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.exe
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.pdb
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe.config
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.pdb
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.frmSelectDifficulty.resources
