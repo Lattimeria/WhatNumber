@@ -1,0 +1,9 @@
+D:\prog\c#\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe.config
+D:\prog\c#\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe
+D:\prog\c#\WhatNumber\WhatNumber\bin\Debug\WhatNumber.pdb
+D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csprojResolveAssemblyReference.cache
+D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Form1.resources
+D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Properties.Resources.resources
+D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csproj.GenerateResource.Cache
+D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.exe
+D:\prog\c#\WhatNumber\WhatNumber\obj\Debug\WhatNumber.pdb
