@@ -12,7 +12,7 @@ namespace WhatNumber
 {
     public partial class Form1 : Form
     {
-        int size = 4;
+        //int size = 4;
         public Button[,] but;
         Game game;
         bool buttonsBlocked = false;
@@ -20,7 +20,7 @@ namespace WhatNumber
         {
             InitializeComponent();
             InitializeButton(size);
-            StartGame();
+            StartGame(size);
 
             
         }
@@ -29,7 +29,7 @@ namespace WhatNumber
             
         }
 
-        public void StartGame() //создание новой игры
+        public void StartGame(int size) //создание новой игры
         {
             game = new Game();
             game.Start(size);
@@ -80,13 +80,13 @@ namespace WhatNumber
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e) //таймер закрытие ячеек
+        private void timer1_Tick(object sender, EventArgs e)
         {
             buttonsBlocked = false;
             timer1.Stop();
-            for(int i=0;i<size;i++)
+            for(int i=0;i<but.GetLength(0);i++)
             {
-                for(int j=0;j<size;j++)
+                for(int j=0;j< but.GetLength(1); j++)
                 {
                     but[i, j].Enabled = true;
                     but[i, j].Text = "?";
