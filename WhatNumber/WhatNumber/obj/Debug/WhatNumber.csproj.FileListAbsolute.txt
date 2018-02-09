@@ -17,3 +17,14 @@ C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatN
 C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe
 C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.pdb
 C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.frmSelectDifficulty.resources
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe.config
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.exe
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.pdb
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.exe
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\bin\Debug\WhatNumber.pdb
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csprojResolveAssemblyReference.cache
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Form1.resources
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.frmSelectDifficulty.resources
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Properties.Resources.resources
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csproj.GenerateResource.Cache
+C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Scores.resources

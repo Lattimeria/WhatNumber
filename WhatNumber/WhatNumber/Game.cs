@@ -10,11 +10,11 @@ namespace WhatNumber
     class Game
     {
         Cell[,] Cells;
-        public void Start(int size)
+        public void Start(int size) //старт игры
         {
             InitializeNumber(size);
         }
-        void InitializeNumber(int size)
+        void InitializeNumber(int size) //инициализация чисел, соответствующих ячейкам
         {
             Cells = new Cell[size, size];
             var numberList = new List<int>();
@@ -36,7 +36,7 @@ namespace WhatNumber
                 }
             }
         }
-        public int OpenCell(int x, int y, out bool closeAllCells)
+        public int OpenCell(int x, int y, out bool closeAllCells) //открытие ячейки
         {
             var cellToCheck = Cells[x, y];
 
@@ -57,11 +57,25 @@ namespace WhatNumber
             return cellToCheck.Value;
         }
 
-        public bool IsWin()
+        public bool IsWin() //при победе
         {
-            return false;       // дописать логику
+            int countOpenCells = 0;
+            for (int i = 0; i < Cells.GetLength(0); i++)
+            {
+                for (int j = 0; j < Cells.GetLength(1); j++)
+                {
+                    if (Cells[i, j].IsOpened)
+                    {
+                        countOpenCells++;
+                    }
+                }
+            }
+            if (countOpenCells == (Cells.GetLength(0) * Cells.GetLength(1)))
+                return true;
+            else
+                return false;       // дописать логику
         }
-        void CloseAllCells()
+        void CloseAllCells() //закрыть все ячейки
         {
             for (int i = 0; i < Cells.GetLength(0); i++)
             {
@@ -73,7 +87,7 @@ namespace WhatNumber
         }
 
         // TODO: поменять аргументы на Cell
-        bool IsPairOpened(int valueToCheck, int x, int y)
+        bool IsPairOpened(int valueToCheck, int x, int y) //открыта пара одинаковых ячеек
         {
             for (int i = 0; i < Cells.GetLength(0); i++)
             {
@@ -89,7 +103,7 @@ namespace WhatNumber
             return false;
         }
 
-        Cell GetOpenedCellWithoutPair()
+        Cell GetOpenedCellWithoutPair() //открытие ячеек без пары
         {
             for (int i = 0; i < Cells.GetLength(0); i++)
             {
@@ -106,8 +120,9 @@ namespace WhatNumber
             return null;
         }
 
-        bool IsAnythingOpened()
+        bool IsAnythingOpened() //открыта ли ячейка (хоть одна)
         {
+            
             for (int i = 0; i < Cells.GetLength(0); i++)
             {
                 for (int j = 0; j < Cells.GetLength(1); j++)
@@ -116,7 +131,6 @@ namespace WhatNumber
                         return true;
                 }
             }
-
             return false;
         }
 

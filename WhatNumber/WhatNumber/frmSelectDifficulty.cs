@@ -19,7 +19,15 @@ namespace WhatNumber
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 gameForm = new Form1(8, this);
+            Form1 gameForm = new Form1(4, this);
+            gameForm.Show();
+
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 gameForm = new Form1(6, this);
             gameForm.Show();
 
             this.Hide();

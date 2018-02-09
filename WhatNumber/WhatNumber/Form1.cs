@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//окно выбора сложности
-//окно рекордов
+
 namespace WhatNumber
 {
-    public partial class Form1 : Form //отрисовка, управление игрой
+    public partial class Form1 : Form
     {
         int size = 4;
         public Button[,] but;
@@ -19,24 +18,25 @@ namespace WhatNumber
         bool buttonsBlocked = false;
         public Form1(int size, frmSelectDifficulty difficultyForm)
         {
-            this.size = size;   // избавиться от этого, игра запускается только один раз при открытии формы
             InitializeComponent();
             InitializeButton(size);
             StartGame();
+
+            
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             
         }
 
-        public void StartGame()
+        public void StartGame() //создание новой игры
         {
             game = new Game();
             game.Start(size);
-            
+
         }
 
-        void InitializeButton(int count)
+        void InitializeButton(int count) //инициализация ячеек (отрисовка)
         {
             but = new Button[count,count];
             for (int i = 0; i < count; ++i)
@@ -57,7 +57,7 @@ namespace WhatNumber
                 }
             }
         }
-        void but_MouseClick(int i, int j)
+        void but_MouseClick(int i, int j) //обработчик щелчка кнопки
         {
             if (buttonsBlocked)
                 return;
@@ -71,9 +71,16 @@ namespace WhatNumber
                 buttonsBlocked = true;
                 timer1.Start();
             }
+            if (game.IsWin())
+            {
+                Scores scores = new Scores();
+                scores.Show();
+                this.Close();
+                //Scores.ActiveForm.Show();
+            }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e) //таймер закрытие ячеек
         {
             buttonsBlocked = false;
             timer1.Stop();
