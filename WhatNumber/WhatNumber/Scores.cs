@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace WhatNumber
 {
-    public partial class Scores : Form
+    public partial class Scores  : Form
     {
-        public Scores()
+        
+        public Scores(Record record)
         {
+            
             InitializeComponent();
+            
+            listView1.Items.Add(record.ToString());
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -27,8 +31,8 @@ namespace WhatNumber
             Form difficulty = Application.OpenForms[0];
             difficulty.Show();
             this.Hide();
-            //frmSelectDifficulty.ActiveForm.Show();
 
         }
+        
     }
 }

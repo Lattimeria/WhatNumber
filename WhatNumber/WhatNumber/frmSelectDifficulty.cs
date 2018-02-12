@@ -12,6 +12,7 @@ namespace WhatNumber
 {
     public partial class frmSelectDifficulty : Form
     {
+        public string NameGamer;
         public frmSelectDifficulty()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace WhatNumber
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 gameForm = new Form1(4, this);
+            NameGamer = textBox1.Text;
+            Form1 gameForm = new Form1(4, this, NameGamer);
             gameForm.Show();
 
             this.Hide();
@@ -27,10 +29,21 @@ namespace WhatNumber
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 gameForm = new Form1(6, this);
+            NameGamer = textBox1.Text;
+            Form1 gameForm = new Form1(6, this,NameGamer);
             gameForm.Show();
 
             this.Hide();
+        }
+        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            NameGamer = "NotIdentified";
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

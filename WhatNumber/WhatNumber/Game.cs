@@ -73,7 +73,7 @@ namespace WhatNumber
             if (countOpenCells == (Cells.GetLength(0) * Cells.GetLength(1)))
                 return true;
             else
-                return false;       // дописать логику
+                return false;      
         }
         void CloseAllCells() //закрыть все ячейки
         {
@@ -146,4 +146,5 @@ namespace WhatNumber
             Value = value;
         }
     }
+    
 }

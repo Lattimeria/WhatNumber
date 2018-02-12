@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,17 +13,19 @@ namespace WhatNumber
 {
     public partial class Form1 : Form
     {
-        //int size = 4;
         public Button[,] but;
         Game game;
         bool buttonsBlocked = false;
-        public Form1(int size, frmSelectDifficulty difficultyForm)
+        Stopwatch sw;
+        public string NameGamer;
+        public Form1(int size, frmSelectDifficulty difficultyForm, string nameGamer)
         {
             InitializeComponent();
             InitializeButton(size);
             StartGame(size);
-
-            
+            sw = new Stopwatch();
+            sw.Start();
+            NameGamer = nameGamer;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -73,10 +76,17 @@ namespace WhatNumber
             }
             if (game.IsWin())
             {
-                Scores scores = new Scores();
+                sw.Stop();
+                
+                Record record = new Record();
+                record.Difficult = but.GetLength(0);
+                record.Minutes = sw.Elapsed.Minutes;
+                record.Seconds = sw.Elapsed.Seconds;
+                record.Name = NameGamer;
+
+                Scores scores = new Scores(record);
                 scores.Show();
                 this.Close();
-                //Scores.ActiveForm.Show();
             }
         }
 
@@ -93,6 +103,7 @@ namespace WhatNumber
                 }
             }
         }
+
     }
 
 }
