@@ -13,23 +13,23 @@ namespace WhatNumber
 {
     public partial class Form1 : Form
     {
-        public Button[,] but;
+        Button[,] btns;
         Game game;
         bool buttonsBlocked = false;
         Stopwatch sw;
-        public string NameGamer;
-        public Form1(int size, frmSelectDifficulty difficultyForm, string nameGamer)
+        string GamerName;
+        public Form1(int size, string gamerName)
         {
             InitializeComponent();
             InitializeButton(size);
             StartGame(size);
             sw = new Stopwatch();
             sw.Start();
-            NameGamer = nameGamer;
+            GamerName = gamerName;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void StartGame(int size) //создание новой игры
@@ -41,34 +41,34 @@ namespace WhatNumber
 
         void InitializeButton(int count) //инициализация ячеек (отрисовка)
         {
-            but = new Button[count,count];
+            btns = new Button[count, count];
             for (int i = 0; i < count; ++i)
             {
                 for (int j = 0; j < count; ++j)
                 {
-                    but[i, j] = new Button();
-                    but[i, j].Size = new Size(60, 60);
-                    but[i, j].Location = new Point(i * 60, j * 60);
-                    but[i, j].Text ="?";
+                    btns[i, j] = new Button();
+                    btns[i, j].Size = new Size(60, 60);
+                    btns[i, j].Location = new Point(i * 60, j * 60);
+                    btns[i, j].Text = "?";
                     int x = i;
                     int y = j;
-                    but[i, j].Click += (sender, but_event) =>
+                    btns[i, j].Click += (sender, but_event) =>
                     {
-                        but_MouseClick(x, y);
+                        button_MouseClick(x, y);
                     };
-                    this.Controls.Add(but[i, j]);
+                    this.Controls.Add(btns[i, j]);
                 }
             }
         }
-        void but_MouseClick(int i, int j) //обработчик щелчка кнопки
+        void button_MouseClick(int i, int j) //обработчик щелчка кнопки
         {
             if (buttonsBlocked)
                 return;
 
             bool closeAllCells;
             int number = game.OpenCell(i, j, out closeAllCells);
-            but[i, j].Enabled = false;
-            but[i, j].Text = number.ToString();
+            btns[i, j].Enabled = false;
+            btns[i, j].Text = number.ToString();
             if (closeAllCells == true)
             {
                 buttonsBlocked = true;
@@ -77,12 +77,12 @@ namespace WhatNumber
             if (game.IsWin())
             {
                 sw.Stop();
-                
+
                 Record record = new Record();
-                record.Difficult = but.GetLength(0);
+                record.Difficult = btns.GetLength(0);
                 record.Minutes = sw.Elapsed.Minutes;
                 record.Seconds = sw.Elapsed.Seconds;
-                record.Name = NameGamer;
+                record.Name = GamerName;
 
                 Scores scores = new Scores(record);
                 scores.Show();
@@ -94,12 +94,12 @@ namespace WhatNumber
         {
             buttonsBlocked = false;
             timer1.Stop();
-            for(int i=0;i<but.GetLength(0);i++)
+            for (int i = 0; i < btns.GetLength(0); i++)
             {
-                for(int j=0;j< but.GetLength(1); j++)
+                for (int j = 0; j < btns.GetLength(1); j++)
                 {
-                    but[i, j].Enabled = true;
-                    but[i, j].Text = "?";
+                    btns[i, j].Enabled = true;
+                    btns[i, j].Text = "?";
                 }
             }
         }

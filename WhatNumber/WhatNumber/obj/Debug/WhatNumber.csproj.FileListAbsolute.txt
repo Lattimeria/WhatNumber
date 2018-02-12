@@ -28,3 +28,4 @@ C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\
 C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Properties.Resources.resources
 C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.csproj.GenerateResource.Cache
 C:\Users\Алена\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Scores.resources
+C:\Users\Alena\Documents\GitHub\WhatNumber\WhatNumber\WhatNumber\obj\Debug\WhatNumber.Scores.resources
