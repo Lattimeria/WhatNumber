@@ -11,51 +11,56 @@ using System.Windows.Forms;
 
 namespace WhatNumber
 {
-    public partial class Scores  : Form
+    public partial class Scores : Form
     {
-        
+
         public Scores(Record record)
         {
-            
             InitializeComponent();
-            AddRecords();
-            // проверить существует ли файл. Если нет, создать.
-            // если да, переписать из него данные в листвью
-            // после этого записать в файл (последним итемом) данные name,diff,time из Record
-            // сохранить файл
-            // 
-            var item = listView1.Items.Add(record.Name);
-            item.SubItems.Add(record.Difficult.ToString());
-            item.SubItems.Add($"{record.Minutes}:{record.Seconds}");
+            AddRecords(record);
+
 
         }
-        public void AddRecords()
+        public void AddRecords(Record record)
         {
-            if (File.Exists(Application.StartupPath + "\\records.txt") == false)
-                File.Create(Application.StartupPath + "\\records.txt");
-            
-            /*if (File.Exists(Application.StartupPath + "\\records.txt"))
+            var items = new Record[] { };
+            var startPath = Application.StartupPath + "\\records.txt";
+
+            if (File.Exists(startPath) == true)
             {
-                var stream  = File.OpenRead(Application.StartupPath + "\\records.txt");
+                var stream = File.OpenRead(startPath);
                 var reader = new BinaryReader(stream);
                 int num = reader.ReadInt32();
 
-                var items = new Record[num];
+                items = new Record[num];
 
                 for (int i = 0; i < num; i++)
                 {
                     items[i] = new Record(reader);
+                    var item = listView1.Items.Add(items[i].Name);
+                    item.SubItems.Add(items[i].Difficult.ToString());
+                    item.SubItems.Add($"{items[i].Minutes}:{items[i].Seconds}");
                 }
+                stream.Close();
             }
             else
             {
-                File.Create(Application.StartupPath + "\\record.txt");
-                var stream = FileMode.OpenOrCreate(Application.StartupPath + "\\recors=ds.txt");
+                var stream = File.Open(startPath, FileMode.OpenOrCreate);
                 var writer = new BinaryWriter(stream);
+                var length = 1;
 
-                
+                if (items != null && items.Length > 0)
+                    length += items.Length;
+                writer.Write(length);
+                record.WriteToStream(writer);
 
-            }     */
+                if (length > 1)
+                    foreach (var item in items)
+                    {
+                        item.WriteToStream(writer);
+                    }
+                stream.Close();
+            }
 
         }
 
@@ -70,6 +75,6 @@ namespace WhatNumber
             difficulty.Show();
             this.Hide();
         }
-        
+
     }
 }
