@@ -21,10 +21,30 @@ namespace WhatNumber
 
 
         }
-        public void AddRecords(Record record)
+        public void AddRecords(Record currentRecord)
+        {
+            var startPath = Application.StartupPath + "\\records.txt";
+          
+            var records = ReadFromFile(startPath);
+
+            foreach(var record in records)
+            {
+                var itm = listView1.Items.Add(record.Name);
+                itm.SubItems.Add(record.Difficult.ToString());
+                itm.SubItems.Add($"{record.Minutes}:{record.Seconds}");
+            }
+
+            var item = listView1.Items.Add(currentRecord.Name);
+            item.SubItems.Add(currentRecord.Difficult.ToString());
+            item.SubItems.Add($"{currentRecord.Minutes}:{currentRecord.Seconds}");
+
+            WriteToFile(startPath, records, currentRecord);       
+            
+
+        }
+        Record[] ReadFromFile(string startPath)
         {
             var items = new Record[] { };
-            var startPath = Application.StartupPath + "\\records.txt";
 
             if (File.Exists(startPath) == true)
             {
@@ -37,33 +57,31 @@ namespace WhatNumber
                 for (int i = 0; i < num; i++)
                 {
                     items[i] = new Record(reader);
-                    var item = listView1.Items.Add(items[i].Name);
-                    item.SubItems.Add(items[i].Difficult.ToString());
-                    item.SubItems.Add($"{items[i].Minutes}:{items[i].Seconds}");
+                    
                 }
                 stream.Close();
             }
-            else
-            {
-                var stream = File.Open(startPath, FileMode.OpenOrCreate);
-                var writer = new BinaryWriter(stream);
-                var length = 1;
 
-                if (items != null && items.Length > 0)
-                    length += items.Length;
-                writer.Write(length);
-                record.WriteToStream(writer);
-
-                if (length > 1)
-                    foreach (var item in items)
-                    {
-                        item.WriteToStream(writer);
-                    }
-                stream.Close();
-            }
-
+            return items;
         }
+        void WriteToFile(string startPath, Record[] items, Record currentRecord)
+        {
+            var stream = File.Open(startPath, FileMode.OpenOrCreate);
+            var writer = new BinaryWriter(stream);
+            var length = 1;
 
+            if (items != null && items.Length > 0)
+                length += items.Length;
+            writer.Write(length);
+            currentRecord.WriteToStream(writer);
+
+            if (length > 1)
+                foreach (var item in items)
+                {
+                    item.WriteToStream(writer);
+                }
+            stream.Close();
+        }
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

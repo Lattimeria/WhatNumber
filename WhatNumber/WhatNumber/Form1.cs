@@ -99,7 +99,7 @@ namespace WhatNumber
                 for (int j = 0; j < btns.GetLength(1); j++)
                 {
                     btns[i, j].Enabled = true;
-                    btns[i, j].Text = "?";
+                   // btns[i, j].Text = "?";
                 }
             }
         }
